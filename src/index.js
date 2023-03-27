@@ -51,22 +51,21 @@ function renderCountriesData(elements) {
 
     drawContriesList(templateData, template);
   }
-
-  // drawContries(templateData, template);
 }
 
 function createTemplateList(elements) {
-  return elements.map(
-    ({ capital, flags, languages, name, population }) =>
-      `<img src="${flags.svg}" alt="${
-        name.official
-      }" width="240" height="160" />
-      <h1 class="country-info__title">${name.official}</h1>
-      <p>Capital: ${capital}</p>
-      <p>Population: ${population}</p>
-      <p>Lenguages: ${Object.values(languages)}</p>
-    `
-  );
+  return elements
+    .map(
+      ({ capital, flags, languages, name, population }) =>
+        `<img src="${flags.svg}" alt="${
+          name.official
+        }" width="240" height="160" />
+        <h1 class="country-info__title">${name.official}</h1>
+        <p>Capital: ${capital}</p>
+        <p>Population: ${population}</p>
+        <p>Lenguages: ${Object.values(languages)}</p>`
+    )
+    .join(', ');
 }
 
 function createTemplateInfo(elements) {
@@ -93,11 +92,6 @@ function moreSpecificNameInfo() {
 function errorWarning() {
   Notify.failure('Oops, there is no country with that name.');
 }
-
-// function drawContries(countryListEl, countryInfoEl, markup) {
-//   countryListEl.innerHTML = markup;
-//   countryInfoEl.innerHTML = markup;
-// }
 
 function drawContriesList(countryListEl, markup) {
   countryListEl.innerHTML = markup;
