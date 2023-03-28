@@ -54,18 +54,16 @@ function renderCountriesData(elements) {
 }
 
 function createTemplateList(elements) {
-  return elements
-    .map(
-      ({ capital, flags, languages, name, population }) =>
-        `<img src="${flags.svg}" alt="${
-          name.official
-        }" width="240" height="160" />
+  return elements.map(
+    ({ capital, flags, languages, name, population }) =>
+      `<img src="${flags.svg}" alt="${
+        name.official
+      }" width="240" height="160" />
         <h1 class="country-info__title">${name.official}</h1>
         <p>Capital: ${capital}</p>
         <p>Population: ${population}</p>
-        <p>Lenguages: ${Object.values(languages)}</p>`
-    )
-    .join(', ');
+        <p>Lenguages: ${Object.values(languages).join(', ')}</p>`
+  );
 }
 
 function createTemplateInfo(elements) {
